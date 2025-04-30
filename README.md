@@ -15,7 +15,7 @@
 - HTML5 (Semantic Structure)
 - CSS3 (Custom Properties, Grid, Flexbox)
 - BEM (Block Element Modifier) naming convention
-- Mobile-First & Responsive Design
+- Responsive Design
 
 ## 🌟 Features
 

@@ -1,0 +1,98 @@
+@use "config" as *;
+
+:root {
+  // --- USER DEFINED PALETTE ---
+  --color-primary: #C8A27E;
+  --color-primary-dark: #B48C68;
+  --color-secondary: #5B6472;
+  --color-secondary-light: #8A94A6;
+
+  // Backgrounds mapped to existing variables
+  --color-grey-light-1: #FAFAFA; // Main background
+  --color-grey-light-2: #F4EFE9; // Card background
+  --color-grey-light-3: #E8E6E3; // Utilities/Borders
+  --color-grey-light-4: #9AA3AF; // Text dim
+
+  // Dark sections
+  --color-secondary: #5B6472;
+  --color-grey-dark-1: #2E3440; // Dark section background
+  --color-grey-dark-2: #222831; // Heading text
+
+  // Constants
+  --color-white: #FFFFFF;
+
+  // Legacy Mapping for compatibility
+  --color-text-light: #FFFFFF;
+  --color-text-dim: #9AA3AF;
+  --color-bg-dark: #2E3440;
+  --color-secondary-rgb: 91, 100, 114;
+}
+
+// Ensure "Seen on", Footer, and Realtors are explicitly handled
+.header__seenon-text, 
+.footer, 
+.realtors,
+.realtors__details h4,
+.copyright {
+  --color-text-custom: #FFFFFF;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  color: var(--color-secondary); // Main text color from user
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  background-color: var(--color-grey-light-1);
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns:
+    [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end] minmax(6rem, 1fr) [full-end];
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns:
+      [full-start] minmax(6rem, 1fr) [center-start]
+      repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+      [center-end] minmax(6rem, 1fr) [full-end];
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-rows: 6rem 100vh;
+  }
+}
+
+// MODERN REVEAL ANIMATIONS
+.section-reveal {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

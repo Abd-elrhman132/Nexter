@@ -1,0 +1,89 @@
+@use "config" as *;
+
+%heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-text-heading);
+}
+
+.heading-1 {
+  @extend %heading;
+  font-size: 4.6rem;
+  color: #fff; // Hero text remains white
+  line-height: 1;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.2;
+
+  &--light {
+    color: var(--color-text-light);
+  }
+  &--dark {
+    color: var(--color-text-heading);
+  }
+}
+
+.heading-3 {
+  @extend %heading;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.heading-4 {
+  @extend %heading;
+  font-size: 1.9rem;
+  font-weight: 700;
+
+  &--light {
+    color: var(--color-text-light);
+  }
+  &--dark {
+    color: var(--color-text-heading);
+  }
+}
+
+.btn {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+.mb-sm {
+  margin-bottom: 2rem;
+}
+.mb-md {
+  margin-bottom: 3rem;
+}
+.mb-lg {
+  margin-bottom: 4rem;
+}
+.mb-hg {
+  margin-bottom: 8rem;
+}
